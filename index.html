@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Oficial Del FDR</title>
+    <link rel="icon" href="c:\Users\sarge\Desktop\ProyectoDisenoWeb24\bnb_crypto_icon_264355.ico">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+        }
+        nav {
+            background-color: white; /* Color de fondo del menú */
+            padding: 1rem;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: blue; /* Color del texto del menú */
+            text-decoration: none;
+        }
+        .banner img {
+            width: 100%;
+            max-height: 300px; /* Ajusta la altura según sea necesario */
+            object-fit: cover; /* Mantiene la relación de aspecto */
+        }
+        .carousel {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .carousel-images {
+            display: none;
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .carousel-button.prev {
+            left: 10px;
+        }
+        .carousel-button.next {
+            right: 10px;
+        }
+        .interactive-images {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .interactive-images img {
+            width: 100px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .interactive-images img:hover {
+            transform: scale(1.2);
+        }
+        .buttons {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .popup img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+        .popup-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .info-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .info-popup img {
+            max-width: 70%;
+            max-height: 70%;
+            border-radius: 10px;
+        }
+        .info-popup-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="banner">
+            <img src="C:\Users\JOSE REYES\Desktop\ProyectoDisenoWeb24\imagenes\logofdr.jpg" alt="Banner de Bienvenida">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="historia.html">Historia</a></li>
+                <li><a href="informacion.html">Información General</a></li>
+                <li><a href="oferta_academica.html">Oferta Académica</a></li>
+                <li><a href="promocion_2024.html">Promoción 2024</a></li>
+                <li><a href="logros.html">Logros</a></li>
+                <li><a href="quienes_somos.html">Quiénes Somos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Carrusel -->
+        <div class="carousel">
+            <div class="carousel-images" id="carouselImages">
+                <img src="imagen1.jpg" alt="Imagen 1" class="carousel-images" style="display: block;">
+                <img src="imagen2.jpg" alt="Imagen 2" class="carousel-images">
+                <img src="imagen3.jpg" alt="Imagen 3" class="carousel-images">
+            </div>
+            <button class="carousel-button prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="carousel-button next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+
+        <!-- Imágenes interactivas -->
+        <section class="interactive-images">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_25Hle_oaKDW9_Lb4i_9d0hqjbmYlkr3Lww&s" alt="Interactiva 1" onclick="showPopup('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_25Hle_oaKDW9_Lb4i_9d0hqjbmYlkr3Lww&s')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzHVP8nxv2bKgGXHQA1yC3jKlciwnlhI4UlQ&s" alt="Interactiva 2" onclick="showPopup('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzHVP8nxv2bKgGXHQA1yC3jKlciwnlhI4UlQ&s')">
+            <img src="https://i2.wp.com/losdelpuerto.net/wp-content/uploads/2021/08/fdr.jpg?ssl=1" alt="Interactiva 3" onclick="showPopup('https://i2.wp.com/losdelpuerto.net/wp-content/uploads/2021/08/fdr.jpg?ssl=1')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMLRy-Rq8TqcXJiR4CY2UjwFuoYTm4WPffmw&s" alt="Interactiva 4" onclick="showPopup('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMLRy-Rq8TqcXJiR4CY2UjwFuoYTm4WPffmw&s')">
+        </section>
+
+        <!-- Botones -->
+        <div class="buttons">
+            <button onclick="location.href='promocion_2024.html'">Promoción 2024</button>
+            <button onclick="location.href='oferta_academica.html'">Oferta Académica</button>
+        </div>
+
+        <!-- Popup de imágenes interactivas -->
+        <div class="popup" id="popup">
+            <span class="popup-close" onclick="closePopup()">&times;</span>
+            <img id="popupImage" src="" alt="Imagen Popup">
+        </div>
+
+        <!-- Popup de información adicional -->
+        <div class="info-popup" id="infoPopup">
+            <span class="info-popup-close" onclick="closeInfoPopup()">&times;</span>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQldKvjdX823Mb1bb1BrxaQWB7cuFM_i-nPrA&s" alt="Instituto FDR">
+        </div>
+
+        <button onclick="showInfoPopup()">Mostrar Información Adicional</button>
+    </main>
+
+    <footer>
+        <div class="banner">
+            <h2>Gracias por visitarnos</h2>
+        </div>
+
+        <div id="video-container">
+            <h2>Video Promocional FDR</h2>
+            <video width="560" height="315" controls>
+                <source src="c:\Users\sarge\Desktop\ProyectoDisenoWeb24\VideoColegio\Coleguio JOSTYN.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+        </div>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            const slides = document.querySelectorAll(".carousel-images");
+            slides.forEach((slide, index) => {
+                slide.style.display = index === slideIndex ? "block" : "none";
+            });
+            slideIndex++;
+            if (slideIndex >= slides.length) { slideIndex = 0; }
+            setTimeout(showSlides, 3000); // Cambia la imagen cada 3 segundos
+        }
+
+        function changeSlide(n) {
+            slideIndex += n;
+            const slides = document.querySelectorAll(".carousel-images");
+            if (slideIndex >= slides.length) { slideIndex = 0; }
+            if (slideIndex < 0) { slideIndex = slides.length - 1; }
+            slides.forEach((slide, index) => {
+                slide.style.display = index === slideIndex ? "block" : "none";
+            });
+        }
+
+        function showPopup(imageSrc) {
+            document.getElementById("popupImage").src = imageSrc;
+            document.getElementById("popup").style.display = "flex";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+
+        function showInfoPopup() {
+            document.getElementById("infoPopup").style.display = "flex";
+        }
+
+        function closeInfoPopup() {
+            document.getElementById("infoPopup").style.display = "none";
+        }
+    </script>
+</body>
+</html>
